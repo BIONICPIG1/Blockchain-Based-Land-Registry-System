@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Land Registry DApp</title>
+  <link rel="stylesheet" href="src/styles.css">
+  <meta charset="UTF-8" />
+</head>
+
+<body>
+  <div class="container">
+    <h1>Land Registry DApp</h1>
+    <div class="connect">
+      <button id="connectWalletBtn">Connect Wallet</button>
+      <div id="userAddress"></div>
+    </div>
+
+    <div id="connectMessage">Please connect your wallet.</div>
+
+    <div class="dashboard" id="dashboard">
+      <div class="action-panel">
+        <button id="showRegisterFormBtn">Register New Land</button>
+        <button id="showAllLandsBtn">View All Lands</button>
+      </div>
+
+      <div id="landFormContainer" style="display: none">
+        <form id="landForm">
+          <div class="form-group">
+            <label for="landOwner">Owner Address (optional)</label>
+            <input type="text" id="landOwner" placeholder="Enter owner's address (defaults to your address)" />
+          </div>
+          <div class="form-group">
+            <label for="landLocation">Land Location</label>
+            <input type="text" id="landLocation" placeholder="Enter land location" required />
+          </div>
+          <div class="form-group">
+            <label for="landIpfsHash">IPFS Hash</label>
+            <input type="text" id="landIpfsHash" placeholder="Enter IPFS hash of documents" required />
+          </div>
+          <button id="registerLandBtn" type="submit">Register Land</button>
+        </form>
+      </div>
+
+      <div id="transferFormContainer" style="display: none">
+        <form id="transferForm">
+          <div class="form-group">
+            <label for="transferLandId">Land ID</label>
+            <input type="number" id="transferLandId" placeholder="Enter land ID to transfer" required />
+          </div>
+          <div class="form-group">
+            <label for="newOwnerAddress">New Owner Address</label>
+            <input type="text" id="newOwnerAddress" placeholder="Enter new owner's address" required />
+          </div>
+          <button id="transferLandBtn" type="submit">Transfer Ownership</button>
+        </form>
+      </div>
+
+      <div id="landsContainer"></div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.6.1/web3.min.js"></script>
+  <script src="src/index.js"></script>
+</body>
+</html>
